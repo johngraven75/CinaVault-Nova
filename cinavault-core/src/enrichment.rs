@@ -14,7 +14,7 @@
 //!   applies it. Unmatch clears poster + overview only.
 
 use crate::catalog::MediaItem;
-use crate::db::{AttemptOutcome, LibraryDb};
+use crate::db::LibraryDb;
 use crate::providers::{MergedMetadata, ProviderManifest};
 use serde::{Deserialize, Serialize};
 use std::path::{Path, PathBuf};
@@ -332,6 +332,5 @@ mod tests {
         let item = db.get_item("1").unwrap().unwrap();
         assert!(item.poster_url.is_none());
         assert_eq!(item.title, "Film");
-        let _ = AttemptOutcome::Enriched;
     }
 }

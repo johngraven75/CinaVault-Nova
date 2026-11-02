@@ -26,7 +26,7 @@
 use crate::catalog::MediaItem;
 use crate::db::{AttemptOutcome, LibraryDb};
 use crate::enrichment::{merge_until_complete, save_remote_poster, Provider};
-use crate::providers::{MergedMetadata, ProviderKind, ProviderManifest};
+use crate::providers::{ProviderKind, ProviderManifest};
 use std::path::Path;
 
 #[derive(Debug, Clone, PartialEq, Eq)]

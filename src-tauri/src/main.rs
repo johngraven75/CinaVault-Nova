@@ -10,10 +10,10 @@
 
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
-use cinavault_core::adult::{adult_manifests, enrich_adult_item, AdultResult};
+use cinavault_core::adult::{adult_manifests, enrich_adult_item};
 use cinavault_core::db::LibraryDb;
 use cinavault_core::drive::{
-    auth_url, download_file, list_files_with_refresh, parse_file_list, revoke_token,
+    auth_url, download_file, list_files_with_refresh, revoke_token,
     DriveConfig, DriveFile, DriveTokens, Pkce,
 };
 use cinavault_core::enrichment::{
@@ -226,7 +226,7 @@ fn vault_migrate(confirm: String, backup_folder: String, state: tauri::State<App
     }
     state.require_unlocked()?;
     // Backup first: header + sealed DB to the backup folder.
-    vault_export_backup(backup_folder, state)?;
+    vault_export_backup(backup_folder, state.clone())?;
     // Then seal DB + artwork and delete plaintexts (lock does this).
     vault_lock(state)?;
     Ok("migrated: legacy plaintext library sealed; reversible only via the backup + passphrase".into())
