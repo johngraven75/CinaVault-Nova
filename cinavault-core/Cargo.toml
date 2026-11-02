@@ -1,0 +1,16 @@
+[package]
+name = "cinavault-core"
+version = "0.1.0"
+edition = "2021"
+description = "Shared Rust core for CinaVault-Nova: catalog, provider plugins, playback pipeline, app-vault encryption, and sync"
+license = "MIT"
+
+[dependencies]
+argon2 = "0.5"
+base64 = "0.22"
+chacha20poly1305 = "0.10"
+rand = "0.8"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+thiserror = "2"
+zeroize = "1"
