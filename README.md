@@ -21,7 +21,16 @@ An independent rewrite of CinaVault — a local-first media library for Windows 
 
 ## Status — read this before judging completeness
 
-This is v0.1.0 scaffolding with a working project structure, a real vault/crypto design, and UI screens. It is **not yet a feature-complete rewrite**. See [FEATURE_PARITY.md](FEATURE_PARITY.md) for an honest, item-by-item status: Implemented / Scaffolded / Planned. Do not treat a scaffolded item as shipped.
+This is v0.1.0 with the core completed as a working library app: SQLite
+library DB, provider/adult enrichment with store-safe gating, vault
+sealing + passphrase change/backup, WireGuard install/profile, Drive
+OAuth + listing/ingestion, and offline download — all exercised by
+Rust core tests (26/26) and a passing frontend build. See
+[FEATURE_PARITY.md](FEATURE_PARITY.md) for an honest, item-by-item
+status: Implemented / Scaffolded / Planned. Do not treat a scaffolded
+item as shipped. Still unverified: full Tauri binary build, live
+Windows run, live provider/Drive/WireGuard network tests, signing,
+and hardware playback/casting against real devices.
 
 ## Build
 

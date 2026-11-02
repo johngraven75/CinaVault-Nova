@@ -23,6 +23,11 @@ pub struct MediaItem {
     pub watched: bool,
     pub progress_seconds: u64,
     pub favourite: bool,
+    /// Adult flag, set explicitly by the user / by an adult enrichment
+    /// pass. Never inferred from a filename. Store-safe builds ignore
+    /// adult items entirely (see providers/adult gating).
+    #[serde(default)]
+    pub is_adult: bool,
 }
 
 impl MediaItem {
@@ -86,6 +91,7 @@ pub fn scan_folder(root: &Path) -> ScanResult {
                     watched: false,
                     progress_seconds: 0,
                     favourite: false,
+                    is_adult: false,
                 });
             }
         }
@@ -124,6 +130,7 @@ mod tests {
                     watched: false,
                     progress_seconds: 0,
                     favourite: false,
+                    is_adult: false,
                 },
                 MediaItem {
                     id: "2".into(),
@@ -135,6 +142,7 @@ mod tests {
                     watched: false,
                     progress_seconds: 0,
                     favourite: false,
+                    is_adult: false,
                 },
             ],
         };

@@ -161,11 +161,11 @@ fn derive_key(passphrase: &str, salt: &[u8]) -> Zeroizing<[u8; 32]> {
     let params = Params::new(19456, 2, 1, Some(32))
         .expect("Argon2id parameters m=19456,t=2,p=1,32-byte output are valid");
     let argon2 = Argon2::new(Algorithm::Argon2id, Version::V0x13, params);
-    let mut out = Zeroizing::new([0u8; 32]);
+    let mut buf = [0u8; 32];
     argon2
-        .hash_password_into(passphrase.as_bytes(), salt, &mut out)
+        .hash_password_into(passphrase.as_bytes(), salt, &mut buf)
         .expect("Argon2id key derivation must succeed");
-    out
+    Zeroizing::new(buf)
 }
 
 #[cfg(test)]

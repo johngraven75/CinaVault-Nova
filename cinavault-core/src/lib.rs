@@ -1,19 +1,25 @@
 //! CinaVault-Nova shared core.
 //!
 //! One core, thin platform shells. This crate owns the concepts that must
-//! behave identically on every platform: catalog, provider plugins, playback
-//! pipeline, app-vault encryption, and sync. It owns no UI and no Tauri code.
-//!
-//! Status in v0.1.0: catalog scanning, provider manifests, and vault
-//! seal/unseal are implemented at the core level. Playback and sync are
-//! designed types with stub pipelines — see FEATURE_PARITY.md. Do not claim
-//! them as shipped.
+//! behave identically on every platform: catalog, persistent database,
+//! provider plugins (including adult providers behind a strict
+//! store-safe gate), background enrichment jobs, playback/casting,
+//! app-vault encryption, VPN, Drive, sync, and update checks.
+//! It owns no UI and no Tauri code.
 
+pub mod adult;
 pub mod catalog;
+pub mod db;
+pub mod drive;
+pub mod enrichment;
+pub mod jobs;
 pub mod playback;
 pub mod providers;
 pub mod sync;
+pub mod updater;
 pub mod vault;
+pub mod vault_store;
+pub mod vpn;
 
 pub use catalog::{MediaItem, ScanResult};
 pub use providers::{ProviderKind, ProviderManifest};

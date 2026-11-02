@@ -58,3 +58,25 @@ input {
 .row { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
 .menu { position: relative; }
 .menu-list { position: absolute; right: 0; top: 36px; z-index: 10; min-width: 180px; }
+
+/* Adaptive modes */
+.mode-phone .grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
+.mode-phone .app { padding: 12px; }
+.mode-tv { font-size: 1.35rem; }
+.mode-tv .grid { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+.mode-tv button { padding: 14px 22px; }
+.mode-tv button:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* High-contrast theme */
+.high-contrast {
+  --glass: #000;
+  --glass-border: #fff;
+  --text: #fff;
+  --muted: #fff;
+  --accent: #ffff00;
+  background: #000;
+}
+.high-contrast button.primary { background: #ffff00; color: #000; }
