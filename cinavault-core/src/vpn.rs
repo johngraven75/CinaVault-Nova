@@ -25,7 +25,7 @@
 
 use serde::{Deserialize, Serialize};
 use sha2::{Digest, Sha256};
-use std::path::Path;
+use std::path::{Path, PathBuf};
 
 pub const WIREGUARD_VERSION: &str = "1.1.1";
 pub const WIREGUARD_MSI_URL: &str =
