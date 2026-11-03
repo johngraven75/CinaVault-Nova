@@ -1,6 +1,6 @@
 [package]
 name = "cinavault-nova"
-version = "0.2.3"
+version = "0.2.4"
 edition = "2021"
 description = "CinaVault-Nova — Tauri 2 shell for the shared Rust core"
 license = "MIT"
